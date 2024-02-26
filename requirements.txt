@@ -1,0 +1,20 @@
+# langchain
+openai
+# chainlit
+# chromadb
+# tiktoken
+# PyPDF2
+# pypdf
+# pandas
+# tabulate
+# keybert
+streamlit
+pdfminer==20191125
+farm-haystack
+# haystack
+# haystack-ai
+torch
+sentence_transformers
+ffmpeg
+moviepy
+
