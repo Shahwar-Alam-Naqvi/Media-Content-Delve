@@ -183,11 +183,14 @@ if pdf_file:
             img_array = np.array(img)  # Convert PIL.Image to numpy array
         resized_image_paths.append(img_array)
 
+        with st.spinner("Generating Video."):
+             # Create a video clip from images
+            video_clip = ImageSequenceClip(resized_image_paths, durations=[image_duration] * len(resized_image_paths))
+            final_clip = video_clip.set_audio(audio_clip)
+            # Output the final video with audio
+            final_clip.write_videofile('final_output.mp4', fps=24, codec='libx264', audio_codec='aac')
+        st.info(f"Generated Video Clip")
         
-        # Create a video clip from images
-        video_clip = ImageSequenceClip(resized_image_paths, durations=[image_duration] * len(resized_image_paths))
-        final_clip = video_clip.set_audio(audio_clip)
-        # Output the final video with audio
-        final_clip.write_videofile('final_output.mp4', fps=24, codec='libx264', audio_codec='aac')
+        st.video(final_clip, format="video/mp4", start_time=0)
     else:
         st.warning("Something wrong in Keywords generation")    

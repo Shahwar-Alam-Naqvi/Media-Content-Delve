@@ -3,7 +3,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+api_key=os.environ.get("MY_OPENAI_API_KEY")
 client = OpenAI(api_key=os.environ.get("MY_OPENAI_API_KEY"))
+print("KEY ===== ", api_key)
 
 # Completion
 def get_completion(messages,model="gpt-3.5-turbo",temperature=0,max_tokens=500):
